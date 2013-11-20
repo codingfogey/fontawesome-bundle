@@ -2,6 +2,7 @@ CodingfogeyFontAwesomeBundle
 ============================
 
 [![knpbundles.com](http://knpbundles.com/codingfogey/fontawesome-bundle/badge-short)](http://knpbundles.com/codingfogey/fontawesome-bundle)
+[![Build Status](https://travis-ci.org/cosingfogey/fontawesome-bundle.png)](https://travis-ci.org/cosingfogey/fontawesome-bundle)
 
 About
 ------
