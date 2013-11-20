@@ -16,16 +16,18 @@ Prerequisites
 Installation
 ------------
 
-1. Add `codinfogey/fontawesome-bundle` to `composer.json`:
+First add `codinfogey/fontawesome-bundle` to `composer.json`:
 
+    // composer.json
     {
         "require": {
             "codingfogey/fontawesome-bundle": "*@dev"
         }
     }
 
-2. Add `CodingfogeyFontAwesomeBundle`  to your `AppKernel.php`:
+Then add `CodingfogeyFontAwesomeBundle` to your `AppKernel.php`:
 
+    // app/AppKernel.php
     ...
     public function registerBundles()
     {
@@ -52,7 +54,7 @@ Usage
 
 Currently the bundle brings one command to install the font files to the `web` directory:
 
-    app/console codingfogey:fontawsome:install
+    app/console codingfogey:fontawesome:install
 
 Additionally it brings a [Twig](http://twig.sensiolabs.org/) function to include icons:
 
