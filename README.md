@@ -1,6 +1,8 @@
 CodingfogeyFontAwesomeBundle
 ============================
 
+[![knpbundles.com](http://knpbundles.com/codingfogey/fontawesome-bundle/badge-short)](http://knpbundles.com/codingfogey/fontawesome-bundle)
+
 About
 ------
 
