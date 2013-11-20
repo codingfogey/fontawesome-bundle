@@ -19,7 +19,7 @@ Installation
 1. Add `codinfogey/fontawesome-bundle` to `composer.json`:
 
     {
-       "require": {
+        "require": {
             "codingfogey/fontawesome-bundle": "*@dev"
         }
     }
