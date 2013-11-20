@@ -1,0 +1,8 @@
+parameters:
+    codingfogey_fontawesome.twig.extension.class: Codingfogey\Bundle\FontAwesomeBundle\Twig\FontAwesomeExtension
+
+services:
+    codingfogey_fontawesome.twig.extension:
+        class: %codingfogey_fontawesome.twig.extension.class%
+        tags:
+            - { name: twig.extension }

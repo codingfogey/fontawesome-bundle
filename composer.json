@@ -1,0 +1,23 @@
+{
+    "name": "codingfogey/fontawesome-bundle",
+    "description": "Easy integration of Font Awesome into Symfony2 projects.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andreas Ernst",
+            "email": "codingfogey@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": ">=2.3"
+    },
+    "suggest": {
+        "braincrafted/bootstrap-bundle": "BraincraftedBootstrapBundle integrates Bootstrap into Symfony2 by providing templates, Twig extensions, services and commands."
+    },
+    "autoload": {
+        "psr-0": { "Codingfogey\\Bundle\\FontAwesomeBundle": "" }
+    },
+    "target-dir": "Codingfogey/Bundle/FontAwesomeBundle"
+}
