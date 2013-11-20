@@ -18,7 +18,6 @@ Installation
 
 First add `codinfogey/fontawesome-bundle` to `composer.json`:
 
-    // composer.json
     {
         "require": {
             "codingfogey/fontawesome-bundle": "*@dev"
@@ -27,7 +26,6 @@ First add `codinfogey/fontawesome-bundle` to `composer.json`:
 
 Then add `CodingfogeyFontAwesomeBundle` to your `AppKernel.php`:
 
-    // app/AppKernel.php
     ...
     public function registerBundles()
     {
