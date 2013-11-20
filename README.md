@@ -68,3 +68,8 @@ License
 
 - This bundle is licensed under the [MIT License](http://opensource.org/licenses/MIT)
 - For Font Awesome you can find licensing information [here](http://fortawesome.github.io/Font-Awesome/license/)
+
+Acknowledgment
+--------------
+
+- This bundle is inspired by [braincrafted/bootstrap-bundle](https://github.com/braincrafted/bootstrap-bundle.git)
