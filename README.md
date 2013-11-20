@@ -72,4 +72,4 @@ License
 Acknowledgment
 --------------
 
-- This bundle is inspired by [braincrafted/bootstrap-bundle](https://github.com/braincrafted/bootstrap-bundle.git)
+- This bundle is inspired by [braincrafted/bootstrap-bundle](https://github.com/braincrafted/bootstrap-bundle.git) and most of the code is taken from there.
