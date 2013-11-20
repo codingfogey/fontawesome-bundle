@@ -1,6 +1,7 @@
 {
     "name": "codingfogey/fontawesome-bundle",
     "description": "Easy integration of Font Awesome into Symfony2 projects.",
+    "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
         {
