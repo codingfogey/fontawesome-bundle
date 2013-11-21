@@ -14,11 +14,17 @@
         "php": ">=5.3.3",
         "symfony/symfony": ">=2.3"
     },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
     "suggest": {
         "braincrafted/bootstrap-bundle": "BraincraftedBootstrapBundle integrates Bootstrap into Symfony2 by providing templates, Twig extensions, services and commands."
     },
     "autoload": {
         "psr-0": { "Codingfogey\\Bundle\\FontAwesomeBundle": "" }
+    },
+    "config": {
+        "bin-dir": "bin"
     },
     "target-dir": "Codingfogey/Bundle/FontAwesomeBundle"
 }
