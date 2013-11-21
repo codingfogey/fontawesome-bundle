@@ -53,7 +53,7 @@ The configuration is very easy.
 Usage
 -----
 
-Currently the bundle brings one command to install the font files to the `web` directory:
+Currently the bundle brings one command to install the font files to the `web/fonts` directory:
 
     app/console codingfogey:fontawesome:install
 
