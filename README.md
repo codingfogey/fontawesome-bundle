@@ -117,7 +117,7 @@ Stacked Icons can be added with the `fa_stacked_icon( icon1, icon2 [[[, options1
 
 This function will create something similar to
 
-    <span class="fa-stack fa-lg">
+    <span class="fa-stack">
       <i class="fa fa-circle fa-stack-2x"></i>
       <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
     </span>
