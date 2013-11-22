@@ -84,7 +84,7 @@ Additionally it provides two [Twig](http://twig.sensiolabs.org/) functions to in
 
 Single Icons can be added with the `fa_icon` function. It takes one or two parameters:
 
-1. the name of the icon which can be looked up [here](http://fortawesome.github.io/Font-Awesome/icons/)
+1. the name of the icon which can be looked up [here](http://fortawesome.github.io/Font-Awesome/icons/). Omit the `fa-` prefix.
 2. an optional JSON array with options to customize the icon
 
 This function will create something similar to
