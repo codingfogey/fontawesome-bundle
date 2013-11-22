@@ -49,7 +49,9 @@ Then add `CodingfogeyFontAwesomeBundle` to your `AppKernel.php`:
 Configuration
 -------------
 
-The current version has not much to configure. Only the path to your Font Awesome installation directory has to be set.
+The current version has not much to configure. Only the path to your Font Awesome installation directory can be set. 
+If you decide to install Font Awesome via [Packagist](https://packagist.org/packages/fortawesome/font-awesome) even 
+this can be omitted.
 
     codingfogey_font_awesome:
         assets_dir: %kernel.root_dir%/../path/to/font-awesome
