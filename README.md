@@ -82,7 +82,7 @@ There is also a `ScriptHandler` for conveniently doing this automatically on eac
 
 Additionally it provides two [Twig](http://twig.sensiolabs.org/) functions to include icons:
 
-Single Icons can be added with the `fa_icon( icon, options )` function. It takes one or two parameters:
+Single Icons can be added with the `fa_icon( icon [, options] )` function. It takes one or two parameters:
 
 1. the name of the icon which can be looked up [here](http://fortawesome.github.io/Font-Awesome/icons/). Omit the `fa-` prefix.
 2. an optional JSON array with options to customize the icon
@@ -107,7 +107,7 @@ The complete optionset looks like follows. By default none of these options are 
     }
 
 
-Stacked Icons can be added with the `fa_stacked_icon( icon1, icon2, options1, options2, options )` function. It takes two to five parameters:
+Stacked Icons can be added with the `fa_stacked_icon( icon1, icon2 [[[, options1], options2] [, options] )` function. It takes two to five parameters:
 
 1. the name of the foreground icon
 2. the name of the background icon
