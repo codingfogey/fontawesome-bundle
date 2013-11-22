@@ -8,6 +8,7 @@ CodingfogeyFontAwesomeBundle
 
 [![knpbundles.com](http://knpbundles.com/codingfogey/fontawesome-bundle/badge-short)](http://knpbundles.com/codingfogey/fontawesome-bundle)
 
+
 About
 ------
 
@@ -48,7 +49,7 @@ Then add `CodingfogeyFontAwesomeBundle` to your `AppKernel.php`:
 Configuration
 -------------
 
-The configuration is very easy. 
+The current version has not much to configure. Only the path to your Font Awesome installation directory has to be set.
 
     codingfogey_font_awesome:
         assets_dir: %kernel.root_dir%/../path/to/font-awesome
@@ -57,11 +58,25 @@ The configuration is very easy.
 Usage
 -----
 
-Currently the bundle brings one command to install the font files to the `web/fonts` directory:
+Currently the bundle provides one command to install the font files to the `web/fonts` directory:
 
     app/console codingfogey:fontawesome:install
+    
+There is also `ScriptHandler` for conveniently doing this automatically:
 
-Additionally it brings a [Twig](http://twig.sensiolabs.org/) function to include icons:
+    "scripts": {
+        "post-install-cmd": [
+            ...
+            "Codingfogey\\Bundle\\FontAwesomeBundle\\Composer\\ScriptHandler::install"
+        ],
+        "post-update-cmd": [
+            ...
+            "Codingfogey\\Bundle\\FontAwesomeBundle\\Composer\\ScriptHandler::install"
+        ]
+    },
+
+
+Additionally it provides a [Twig](http://twig.sensiolabs.org/) function to include the icons:
 
     {{ fa('edit') }}
 
@@ -76,7 +91,8 @@ License
 - This bundle is licensed under the [MIT License](http://opensource.org/licenses/MIT)
 - For Font Awesome you can find licensing information [here](http://fortawesome.github.io/Font-Awesome/license/)
 
+
 Acknowledgment
 --------------
 
-- This bundle is inspired by [braincrafted/bootstrap-bundle](https://github.com/braincrafted/bootstrap-bundle.git) and most of the code is taken from there.
+- This bundle is mainly inspired by [braincrafted/bootstrap-bundle](https://github.com/braincrafted/bootstrap-bundle.git) and most of the code is taken from there.
