@@ -91,17 +91,18 @@ This function will create something similar to
 
     <i class="fa fa-edit fa-border"></i>
 
-The complete optionset with default values looks like follows
+The complete optionset looks like follows. By default none of these options is set.
 
     {
         scale:          [lg|2x|3x|4x|5x|stack-1x|stack-2x],
-        fixed-width:    false,
-        list-icon:      false,
-        border:         false,
+        fixed-width:    [true|false],
+        list-icon:      [true|false],
+        border:         [true|false],
         pull:           [left|right],
-        spin:           false,
+        spin:           [true|false],
         rotate:         [90|180|270],
         flip:           [horizontal|vertical],
+        inverse:        [true|false],
         classes:        <a string of space separeted css classes>
     }
 
