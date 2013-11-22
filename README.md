@@ -80,13 +80,48 @@ There is also a `ScriptHandler` for conveniently doing this automatically on eac
     ...
 
 
-Additionally it provides a [Twig](http://twig.sensiolabs.org/) function to include the icons:
+Additionally it provides two [Twig](http://twig.sensiolabs.org/) functions to include icons:
 
-    {{ fa('edit') }}
+Single Icons can be added with the `fa_icon` function. It takes one or two parameters:
 
-will create
+1. the name of the icon which can be looked up [here](http://fortawesome.github.io/Font-Awesome/icons/)
+2. an optional JSON array with options to customize the icon
 
-    <i class="fa fa-edit"></i>
+This function will create something similar to
+
+    <i class="fa fa-edit fa-border"></i>
+
+The complete optionset with default values looks like follows
+
+    {
+        scale:          [lg|2x|3x|4x|5x|stack-1x|stack-2x],
+        fixed-width:    false,
+        list-icon:      false,
+        border:         false,
+        pull:           [left|right],
+        spin:           false,
+        rotate:         [90|180|270],
+        flip:           [horizontal|vertical],
+        classes:        <a string of space separeted css classes>
+    }
+
+
+Stacked Icons can be added with the `fa_stacked_icon` function. It takes two to five parameters:
+
+1. the name of the foreground icon
+2. the name of the background icon
+3. options for the foreground icon
+4. options for the background icon
+2. options for the container element
+
+This function will create something similar to
+
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
+    </span>
+
+to be continued...
 
 TODO
 ----
