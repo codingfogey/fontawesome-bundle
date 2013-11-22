@@ -107,7 +107,7 @@ The complete optionset looks like follows. By default none of these options are 
     }
 
 
-Stacked Icons can be added with the `fa_stacked_icon( icon1, icon2 [[[, options1], options2] [, options] )` function. It takes two to five parameters:
+Stacked Icons can be added with the `fa_stacked_icon( icon1, icon2 [[[, options1], options2], options] )` function. It takes two to five parameters:
 
 1. the name of the foreground icon
 2. the name of the background icon
