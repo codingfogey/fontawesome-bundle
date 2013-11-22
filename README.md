@@ -28,7 +28,7 @@ First add `codinfogey/fontawesome-bundle` to `composer.json`:
 
     {
         "require": {
-            "codingfogey/fontawesome-bundle": "*@dev"
+            "codingfogey/fontawesome-bundle": "dev-master"
         }
     }
 
