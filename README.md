@@ -91,7 +91,7 @@ This function will create something similar to
 
     <i class="fa fa-edit fa-border"></i>
 
-The complete optionset looks like follows. By default none of these options is set.
+The complete optionset looks like follows. By default none of these options are set.
 
     {
         scale:          [lg|2x|3x|4x|5x|stack-1x|stack-2x],
