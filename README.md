@@ -62,7 +62,7 @@ Currently the bundle provides one command to install the font files to the `web/
 
     app/console codingfogey:fontawesome:install
     
-There is also `ScriptHandler` for conveniently doing this automatically:
+There is also a `ScriptHandler` for conveniently doing this automatically on each `composer install` or `composer update`:
 
     "scripts": {
         "post-install-cmd": [
