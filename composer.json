@@ -18,6 +18,8 @@
         "phpunit/phpunit": "3.7.*"
     },
     "suggest": {
+        "fortawesome/font-awesome": "The iconic font designed for Bootstrap",
+        "twbs/bootstrap": "Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.",
         "braincrafted/bootstrap-bundle": "BraincraftedBootstrapBundle integrates Bootstrap into Symfony2 by providing templates, Twig extensions, services and commands."
     },
     "autoload": {
