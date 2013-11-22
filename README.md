@@ -64,6 +64,7 @@ Currently the bundle provides one command to install the font files to the `web/
     
 There is also a `ScriptHandler` for conveniently doing this automatically on each `composer install` or `composer update`:
 
+    ...
     "scripts": {
         "post-install-cmd": [
             ...
@@ -74,6 +75,7 @@ There is also a `ScriptHandler` for conveniently doing this automatically on eac
             "Codingfogey\\Bundle\\FontAwesomeBundle\\Composer\\ScriptHandler::install"
         ]
     },
+    ...
 
 
 Additionally it provides a [Twig](http://twig.sensiolabs.org/) function to include the icons:
