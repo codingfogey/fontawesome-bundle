@@ -82,7 +82,7 @@ Additionally it provides a [Twig](http://twig.sensiolabs.org/) function to inclu
 
 will create
 
-    <span class="fa fa-edit"></span>
+    <i class="fa fa-edit"></i>
 
 
 License
