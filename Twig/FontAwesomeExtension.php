@@ -23,7 +23,7 @@ class FontAwesomeExtension extends Twig_Extension
 
     public function faFunction($icon)
     {
-        return sprintf('<span class="fa fa-%s"></span>', $icon);
+        return sprintf('<i class="fa fa-%s"></i>', $icon);
     }
 
     /**
