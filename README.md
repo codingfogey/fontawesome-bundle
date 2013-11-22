@@ -18,7 +18,7 @@ This Bundle makes it easy to integrate [Font Awesome](http://fortawesome.github.
 Prerequisites
 -------------
 
-- Font Awesome installed somewhere in your project
+- Font Awesome installed somewhere in your project. It is not contained in this bundle. You can use [Composer](http://getcomposer.org), [Bower](http://bower.io) or any other way to install it.
 
 
 Installation
