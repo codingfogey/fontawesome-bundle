@@ -133,7 +133,7 @@ to be continued...
 TODO
 ----
 
-Look [here](../../issues?milestone=&state=open)
+Look [here](../../issues?milestone=&state=open).
 
 
 License
