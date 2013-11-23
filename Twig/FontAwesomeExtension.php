@@ -9,8 +9,8 @@ use Twig_Function_Method;
 class FontAwesomeExtension extends Twig_Extension
 {
 
-    private $allowed_scales = array('lg', '1x', '2x', '3x', '4x', '5x', 'stack-1x', 'stack-2x');
-    private $allowed_rotations = array('90', '180', '270');
+    private $allowedScales = array('lg', '1x', '2x', '3x', '4x', '5x', 'stack-1x', 'stack-2x');
+    private $allowedRotations = array('90', '180', '270');
 
     /**
      * {@inheritDoc}
@@ -48,7 +48,7 @@ class FontAwesomeExtension extends Twig_Extension
     public function faIconFunction($icon, array $options = array())
     {
         $classes = array();
-        if (true === isset($options['scale']) && true === in_array($options['scale'], $this->allowed_scales)) {
+        if (true === isset($options['scale']) && true === in_array($options['scale'], $this->allowedScales)) {
             $classes[] = sprintf("fa-%s", $options['scale']);
         }
         if (true === isset($options['fixed-width']) && true === $options['fixed-width']) {
@@ -66,7 +66,7 @@ class FontAwesomeExtension extends Twig_Extension
         if (true === isset($options['spin']) && true === $options['spin']) {
             $classes[] = "fa-spin";
         }
-        if (true === isset($options['rotate']) && true === in_array($options['scale'], $this->allowed_rotations)) {
+        if (true === isset($options['rotate']) && true === in_array($options['scale'], $this->allowedRotations)) {
             $classes[] = sprintf("fa-rotate-%s", $options['rotate']);
         }
         if (true === isset($options['flip']) && true === in_array($options['flip'], array('horizontal', 'vertical'))) {
@@ -120,5 +120,4 @@ class FontAwesomeExtension extends Twig_Extension
     {
         return 'codingfogey_fontawesome';
     }
-
 }
