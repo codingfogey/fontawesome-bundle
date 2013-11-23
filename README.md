@@ -139,8 +139,8 @@ Look [here](../../issues?milestone=&state=open).
 License
 -------
 
-- This bundle is licensed under the [MIT License](http://opensource.org/licenses/MIT)
-- For Font Awesome you can find licensing information [here](http://fortawesome.github.io/Font-Awesome/license/)
+- This bundle is licensed under the [MIT License](http://opensource.org/licenses/MIT).
+- For Font Awesome you can find licensing information [here](http://fortawesome.github.io/Font-Awesome/license/).
 
 
 Acknowledgment
