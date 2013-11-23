@@ -27,26 +27,29 @@ Prerequisites
 Installation
 ------------
 
-First add `codinfogey/fontawesome-bundle` to `composer.json`:
+1. Add `codinfogey/fontawesome-bundle` to your `composer.json`:
 
-    {
-        "require": {
-            "codingfogey/fontawesome-bundle": "dev-master"
-        }
-    }
-
-Then add `CodingfogeyFontAwesomeBundle` to your `AppKernel.php`:
-
-    ...
-    public function registerBundles()
-    {
-        $bundles = array(
+        {
             ...
-            new Codingfogey\Bundle\FontAwesomeBundle\CodingfogeyFontAwesomeBundle()
-        );
+            "require": {
+                ...
+                "codingfogey/fontawesome-bundle": "dev-master"
+            }
+            ...
+        }
+
+2. Add `CodingfogeyFontAwesomeBundle` to your `AppKernel.php`:
+
         ...
-    }
-    ...
+        public function registerBundles()
+        {
+            $bundles = array(
+                ...
+                new Codingfogey\Bundle\FontAwesomeBundle\CodingfogeyFontAwesomeBundle()
+            );
+            ...
+        }
+        ...
 
 
 Configuration
