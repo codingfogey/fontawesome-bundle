@@ -18,10 +18,12 @@ class FontAwesomeExtension extends Twig_Extension
     {
         return array(
             'fa_icon'         => new Twig_Function_Method(
-                $this, 'faIconFunction', array('pre_escape' => 'html', 'is_safe' => array('html'))
+                $this, 'faIconFunction',
+                array('pre_escape' => 'html', 'is_safe' => array('html'))
             ),
             'fa_stacked_icon' => new Twig_Function_Method(
-                $this, 'faStackedIconFunction', array('pre_escape' => 'html', 'is_safe' => array('html'))
+                $this, 'faStackedIconFunction',
+                array('pre_escape' => 'html', 'is_safe' => array('html'))
             ),
         );
     }
@@ -47,7 +49,8 @@ class FontAwesomeExtension extends Twig_Extension
     public function faIconFunction($icon, array $options = array())
     {
         $classes = array();
-        if (true === isset($options['scale']) && true === in_array($options['scale'], $this->allowedScales)) {
+        if (true === isset($options['scale']) && true === in_array($options['scale'],
+                                                                   $this->allowedScales)) {
             $classes[] = sprintf("fa-%s", $options['scale']);
         }
         if (true === isset($options['fixed-width']) && true === $options['fixed-width']) {
@@ -59,16 +62,19 @@ class FontAwesomeExtension extends Twig_Extension
         if (true === isset($options['border']) && true === $options['border']) {
             $classes[] = "fa-border";
         }
-        if (true === isset($options['pull']) && true === in_array($options['pull'], array('left', 'right'))) {
+        if (true === isset($options['pull']) && true === in_array($options['pull'],
+                                                                  array('left', 'right'))) {
             $classes[] = sprintf("fa-pull-%s", $options['pull']);
         }
         if (true === isset($options['spin']) && true === $options['spin']) {
             $classes[] = "fa-spin";
         }
-        if (true === isset($options['rotate']) && true === in_array($options['rotate'], $this->allowedRotations)) {
+        if (true === isset($options['rotate']) && true === in_array($options['rotate'],
+                                                                    $this->allowedRotations)) {
             $classes[] = sprintf("fa-rotate-%s", $options['rotate']);
         }
-        if (true === isset($options['flip']) && true === in_array($options['flip'], array('horizontal', 'vertical'))) {
+        if (true === isset($options['flip']) && true === in_array($options['flip'],
+                                                                  array('horizontal', 'vertical'))) {
             $classes[] = sprintf("fa-flip-%s", $options['flip']);
         }
         if (true === isset($options['inverse']) && (true === $options['inverse'])) {
@@ -93,11 +99,15 @@ class FontAwesomeExtension extends Twig_Extension
      * @param  array  $options  Icon container Options
      * @return string
      */
-    public function faStackedIconFunction($icon1, $icon2, array $options1 = array(), array $options2 = array(), array $options = array())
+    public function faStackedIconFunction($icon1, $icon2,
+                                          array $options1 = array(),
+                                          array $options2 = array(),
+                                          array $options = array())
     {
         $classes   = array();
         $classes[] = "fa-stack";
-        if (true === isset($options['scale']) && true === in_array($options['scale'], $this->allowed_scales)) {
+        if (true === isset($options['scale']) && true === in_array($options['scale'],
+                                                                   $this->allowed_scales)) {
             $classes[] = sprintf("fa-%s", $options['scale']);
         }
 

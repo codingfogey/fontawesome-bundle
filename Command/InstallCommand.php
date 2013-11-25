@@ -38,8 +38,8 @@ class InstallCommand extends ContainerAwareCommand
         try {
             $fs->mkdir($destDir);
         } catch (IOException $e) {
-            $output->writeln(sprintf('<error>Could not create directory %s.</error>', $destDir));
-
+            $output->writeln(sprintf('<error>Could not create directory %s.</error>',
+                                     $destDir));
             return;
         }
 
@@ -50,13 +50,15 @@ class InstallCommand extends ContainerAwareCommand
             try {
                 $fs->copy($file, $dest);
             } catch (IOException $e) {
-                $output->writeln(sprintf('<error>Could not copy %s</error>', $file->getBaseName()));
+                $output->writeln(sprintf('<error>Could not copy %s</error>',
+                                         $file->getBaseName()));
 
                 return;
             }
         }
 
-        $output->writeln(sprintf('Copied Font Awesome fonts to <comment>%s</comment>.', $destDir));
+        $output->writeln(sprintf('Copied Font Awesome fonts to <comment>%s</comment>.',
+                                 $destDir));
     }
 
     /**
@@ -65,7 +67,8 @@ class InstallCommand extends ContainerAwareCommand
     protected function getSrcDir()
     {
         return sprintf(
-            '%s/fonts', $this->getContainer()->getParameter('codingfogey_font_awesome.assets_dir')
+            '%s/fonts',
+            $this->getContainer()->getParameter('codingfogey_font_awesome.assets_dir')
         );
     }
 
@@ -75,7 +78,8 @@ class InstallCommand extends ContainerAwareCommand
     protected function getDestDir()
     {
         return sprintf(
-            '%s/../web/fonts', $this->getContainer()->getParameter('kernel.root_dir')
+            '%s/../web/fonts',
+            $this->getContainer()->getParameter('kernel.root_dir')
         );
     }
 
