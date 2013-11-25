@@ -30,5 +30,4 @@ class CodingfogeyFontAwesomeExtension extends Extension
         $container->setParameter('codingfogey_font_awesome.assets_dir',
                                  $config['assets_dir']);
     }
-
 }

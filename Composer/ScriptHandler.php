@@ -79,5 +79,4 @@ class ScriptHandler
 
         return $phpPath;
     }
-
 }

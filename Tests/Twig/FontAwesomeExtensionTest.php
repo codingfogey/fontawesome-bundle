@@ -200,5 +200,4 @@ class FontAwesomeExtensionTest extends PHPUnit_Framework_TestCase
             $this->extension->faIconFunction('twitter', array('inverse' => 1234))
         );
     }
-
 }

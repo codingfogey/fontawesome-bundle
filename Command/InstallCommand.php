@@ -82,5 +82,4 @@ class InstallCommand extends ContainerAwareCommand
             $this->getContainer()->getParameter('kernel.root_dir')
         );
     }
-
 }

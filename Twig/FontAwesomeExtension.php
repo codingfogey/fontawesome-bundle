@@ -129,5 +129,4 @@ class FontAwesomeExtension extends Twig_Extension
     {
         return 'codingfogey_fontawesome';
     }
-
 }
