@@ -24,7 +24,7 @@ class Configuration implements ConfigurationInterface
         $rootNode
                 ->children()
                     ->scalarNode('assets_dir')
-                        ->defaultValue('%kernel.root_dir%/../vendor/fortawesome/font-awesome') 
+                        ->defaultValue('%kernel.root_dir%/../vendor/fortawesome/font-awesome')
                     ->end()
                 ->end()
         ;

@@ -3,7 +3,6 @@
 namespace Codingfogey\Bundle\FontAwesomeBundle\Twig;
 
 use Twig_Extension;
-use Twig_Filter_Method;
 use Twig_Function_Method;
 
 class FontAwesomeExtension extends Twig_Extension
@@ -30,8 +29,8 @@ class FontAwesomeExtension extends Twig_Extension
     /**
      *
      *
-     * @param type $icon        Icon name
-     * @param array $options    Icon options
+     * @param  type   $icon    Icon name
+     * @param  array  $options Icon options
      * @return string
      *
      *  {
@@ -87,11 +86,11 @@ class FontAwesomeExtension extends Twig_Extension
 
     /**
      *
-     * @param string $icon1     Foreground icon name
-     * @param string $icon2     Background icon name
-     * @param array $options1   Foreground icon options
-     * @param array $options2   Background icon options
-     * @param array $options    Icon container Options
+     * @param  string $icon1    Foreground icon name
+     * @param  string $icon2    Background icon name
+     * @param  array  $options1 Foreground icon options
+     * @param  array  $options2 Background icon options
+     * @param  array  $options  Icon container Options
      * @return string
      */
     public function faStackedIconFunction($icon1, $icon2, array $options1 = array(), array $options2 = array(), array $options = array())
