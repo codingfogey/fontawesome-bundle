@@ -1,8 +1,8 @@
 CodingfogeyFontAwesomeBundle
 ============================
 
-[![Latest Stable Version](https://poser.pugx.org/codingfogey/fontawesome-bundle/v/stable.png)](https://packagist.org/packages/codingfogey/fontawesome-bundle)
 [![Total Downloads](https://poser.pugx.org/codingfogey/fontawesome-bundle/downloads.png)](https://packagist.org/packages/codingfogey/fontawesome-bundle)
+[![Latest Stable Version](https://poser.pugx.org/codingfogey/fontawesome-bundle/v/stable.png)](https://packagist.org/packages/codingfogey/fontawesome-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/codingfogey/fontawesome-bundle/v/unstable.png)](https://packagist.org/packages/codingfogey/fontawesome-bundle)
 [![Build Status](https://travis-ci.org/codingfogey/fontawesome-bundle.png)](https://travis-ci.org/codingfogey/fontawesome-bundle)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/codingfogey/fontawesome-bundle/badges/quality-score.png?s=ddf3507ab8055474b46db51a92e7a486a94a931a)](https://scrutinizer-ci.com/g/codingfogey/fontawesome-bundle/)
