@@ -18,10 +18,10 @@ class FontAwesomeExtension extends Twig_Extension
     {
         return array(
             'fa_icon'         => new Twig_Function_Method(
-                    $this, 'faIconFunction', array('pre_escape' => 'html', 'is_safe' => array('html'))
+                $this, 'faIconFunction', array('pre_escape' => 'html', 'is_safe' => array('html'))
             ),
             'fa_stacked_icon' => new Twig_Function_Method(
-                    $this, 'faStackedIconFunction', array('pre_escape' => 'html', 'is_safe' => array('html'))
+                $this, 'faStackedIconFunction', array('pre_escape' => 'html', 'is_safe' => array('html'))
             ),
         );
     }

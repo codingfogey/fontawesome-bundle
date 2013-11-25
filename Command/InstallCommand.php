@@ -20,8 +20,9 @@ class InstallCommand extends ContainerAwareCommand
      */
     protected function configure()
     {
-        $this->setName('codingfogey:fontawesome:install')
-                ->setDescription('Installs the icon font');
+        $this
+            ->setName('codingfogey:fontawesome:install')
+            ->setDescription('Installs the icon font');
     }
 
     /**
@@ -64,7 +65,7 @@ class InstallCommand extends ContainerAwareCommand
     protected function getSrcDir()
     {
         return sprintf(
-                '%s/fonts', $this->getContainer()->getParameter('codingfogey_font_awesome.assets_dir')
+            '%s/fonts', $this->getContainer()->getParameter('codingfogey_font_awesome.assets_dir')
         );
     }
 
@@ -74,7 +75,7 @@ class InstallCommand extends ContainerAwareCommand
     protected function getDestDir()
     {
         return sprintf(
-                '%s/../web/fonts', $this->getContainer()->getParameter('kernel.root_dir')
+            '%s/../web/fonts', $this->getContainer()->getParameter('kernel.root_dir')
         );
     }
 
