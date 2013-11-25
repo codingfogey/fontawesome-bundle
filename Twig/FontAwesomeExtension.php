@@ -9,7 +9,7 @@ use Twig_Function_Method;
 class FontAwesomeExtension extends Twig_Extension
 {
 
-    private $allowedScales = array('lg', '1x', '2x', '3x', '4x', '5x', 'stack-1x', 'stack-2x');
+    private $allowedScales    = array('lg', '1x', '2x', '3x', '4x', '5x', 'stack-1x', 'stack-2x');
     private $allowedRotations = array('90', '180', '270');
 
     /**
@@ -18,7 +18,7 @@ class FontAwesomeExtension extends Twig_Extension
     public function getFunctions()
     {
         return array(
-            'fa_icon' => new Twig_Function_Method(
+            'fa_icon'         => new Twig_Function_Method(
                     $this, 'faIconFunction', array('pre_escape' => 'html', 'is_safe' => array('html'))
             ),
             'fa_stacked_icon' => new Twig_Function_Method(
@@ -28,12 +28,12 @@ class FontAwesomeExtension extends Twig_Extension
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param type $icon        Icon name
      * @param array $options    Icon options
-     * @return string           
-     * 
+     * @return string
+     *
      *  {
      *      scale:          null,
      *      fixed-width:    false,
@@ -61,12 +61,12 @@ class FontAwesomeExtension extends Twig_Extension
             $classes[] = "fa-border";
         }
         if (true === isset($options['pull']) && true === in_array($options['pull'], array('left', 'right'))) {
-            $classes[] = sprintf("fa-pull-%s", $options['border']);
+            $classes[] = sprintf("fa-pull-%s", $options['pull']);
         }
         if (true === isset($options['spin']) && true === $options['spin']) {
             $classes[] = "fa-spin";
         }
-        if (true === isset($options['rotate']) && true === in_array($options['scale'], $this->allowedRotations)) {
+        if (true === isset($options['rotate']) && true === in_array($options['rotate'], $this->allowedRotations)) {
             $classes[] = sprintf("fa-rotate-%s", $options['rotate']);
         }
         if (true === isset($options['flip']) && true === in_array($options['flip'], array('horizontal', 'vertical'))) {
@@ -86,7 +86,7 @@ class FontAwesomeExtension extends Twig_Extension
     }
 
     /**
-     * 
+     *
      * @param string $icon1     Foreground icon name
      * @param string $icon2     Background icon name
      * @param array $options1   Foreground icon options
@@ -96,7 +96,7 @@ class FontAwesomeExtension extends Twig_Extension
      */
     public function faStackedIconFunction($icon1, $icon2, array $options1 = array(), array $options2 = array(), array $options = array())
     {
-        $classes = array();
+        $classes   = array();
         $classes[] = "fa-stack";
         if (true === isset($options['scale']) && true === in_array($options['scale'], $this->allowed_scales)) {
             $classes[] = sprintf("fa-%s", $options['scale']);
@@ -120,4 +120,5 @@ class FontAwesomeExtension extends Twig_Extension
     {
         return 'codingfogey_fontawesome';
     }
+
 }
