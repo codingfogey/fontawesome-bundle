@@ -1,6 +1,7 @@
 CodingfogeyFontAwesomeBundle
 ============================
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/7b8a98ea-e8e8-49c0-a5b0-7ee378009b07/mini.png)](https://insight.sensiolabs.com/projects/7b8a98ea-e8e8-49c0-a5b0-7ee378009b07)
 [![Total Downloads](https://poser.pugx.org/codingfogey/fontawesome-bundle/downloads.png)](https://packagist.org/packages/codingfogey/fontawesome-bundle)
 [![Latest Stable Version](https://poser.pugx.org/codingfogey/fontawesome-bundle/v/stable.png)](https://packagist.org/packages/codingfogey/fontawesome-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/codingfogey/fontawesome-bundle/v/unstable.png)](https://packagist.org/packages/codingfogey/fontawesome-bundle)
