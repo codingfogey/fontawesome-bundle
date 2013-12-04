@@ -55,10 +55,6 @@ class GenerateCommand extends ContainerAwareCommand
 
     protected function executeGenerateFontAwesome(array $config)
     {
-        // In the template for font-awesome.less we need the path where Font Awesomes .less files are stored and the path
-        // to the variables.less file.
-        // Absolute path do not work in LESSs import statement, we have to calculate the relative ones
-
         $lessDir = $this->pathUtility->getRelativePath(
             dirname($config['font_awesome_output']),
             $this->getContainer()->getParameter('codingfogey_font_awesome.assets_dir')
@@ -74,7 +70,6 @@ class GenerateCommand extends ContainerAwareCommand
             basename($config['variables_file'])
         );
 
-        // We can now use Twig to render the fontawesome.less file and save it
         $content = $this->getContainer()->get('twig')->render(
             $config['font_awesome_template'],
             array(
