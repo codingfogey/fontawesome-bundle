@@ -64,7 +64,7 @@ class InstallCommand extends ContainerAwareCommand
     protected function getSrcDir()
     {
         return sprintf(
-            '%s/fonts', 
+            '%s/fonts',
             $this->getContainer()->getParameter('codingfogey_font_awesome.assets_dir')
         );
     }
@@ -75,7 +75,7 @@ class InstallCommand extends ContainerAwareCommand
     protected function getDestDir()
     {
         return sprintf(
-            '%s/../web/fonts', 
+            '%s/../web/fonts',
             $this->getContainer()->getParameter('kernel.root_dir')
         );
     }
