@@ -48,15 +48,6 @@ class GenerateCommand extends ContainerAwareCommand
             return;
         }
 
-//        $filter = $this->getContainer()->getParameter('codingfogey_font_awesome.less_filter');
-//        if ('less' !== $filter && 'lessphp' !== $filter) {
-//            $output->writeln(
-//                '<error>Bundle must be configured with "less" or "lessphp" to generated fontawesome.less</error>'
-//            );
-//
-//            return;
-//        }
-
         $output->writeln('<comment>Found custom variables file. Generating...</comment>');
         $this->executeGenerateFontAwesome($config);
         $output->writeln(sprintf('Saved to <info>%s</info>', $config['font_awesome_output']));
