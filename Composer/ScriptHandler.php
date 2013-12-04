@@ -19,10 +19,10 @@ class ScriptHandler
 
         if (!is_dir($appDir)) {
             printf(
-                'The symfony-app-dir (%s) specified in composer.json was not found in %s, can not build font awesome ' . 
-                'file.%s', 
-                $appDir, 
-                getcwd(), 
+                'The symfony-app-dir (%s) specified in composer.json was not found in %s, ' . 
+                'can not build font awesome file.%s',
+                $appDir,
+                getcwd(),
                 PHP_EOL
             );
 
@@ -53,11 +53,12 @@ class ScriptHandler
 
     protected static function getOptions(CommandEvent $event)
     {
-        $options = array_merge(array(
+        $options = array_merge(
+            array(
                 'symfony-app-dir'        => 'app',
                 'symfony-web-dir'        => 'web',
                 'symfony-assets-install' => 'hard'
-            ), 
+            ),
             $event->getComposer()->getPackage()->getExtra()
         );
 
