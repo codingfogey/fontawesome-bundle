@@ -19,8 +19,11 @@ class ScriptHandler
 
         if (!is_dir($appDir)) {
             printf(
-                'The symfony-app-dir (%s) specified in composer.json was not found in %s, can not build font awesome ' .
-                'file.%s', $appDir, getcwd(), PHP_EOL
+                'The symfony-app-dir (%s) specified in composer.json was not found in %s, can not build font awesome ' . 
+                'file.%s', 
+                $appDir, 
+                getcwd(), 
+                PHP_EOL
             );
 
             return;
@@ -43,7 +46,7 @@ class ScriptHandler
         });
         if (!$process->isSuccessful()) {
             throw new \RuntimeException(
-            sprintf('An error occurred when executing the "%s" command.', escapeshellarg($cmd))
+                sprintf('An error occurred when executing the "%s" command.', escapeshellarg($cmd))
             );
         }
     }
@@ -51,10 +54,12 @@ class ScriptHandler
     protected static function getOptions(CommandEvent $event)
     {
         $options = array_merge(array(
-            'symfony-app-dir'        => 'app',
-            'symfony-web-dir'        => 'web',
-            'symfony-assets-install' => 'hard'
-            ), $event->getComposer()->getPackage()->getExtra());
+                'symfony-app-dir'        => 'app',
+                'symfony-web-dir'        => 'web',
+                'symfony-assets-install' => 'hard'
+            ), 
+            $event->getComposer()->getPackage()->getExtra()
+        );
 
         $options['symfony-assets-install'] = getenv('SYMFONY_ASSETS_INSTALL') ? : $options['symfony-assets-install'];
 
@@ -68,7 +73,7 @@ class ScriptHandler
         $phpFinder = new PhpExecutableFinder;
         if (!$phpPath   = $phpFinder->find()) {
             throw new \RuntimeException(
-            'The php executable could not be found, add it to your PATH environment variable and try again'
+                'The php executable could not be found, add it to your PATH environment variable and try again'
             );
         }
 
