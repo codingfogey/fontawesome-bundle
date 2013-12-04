@@ -26,6 +26,9 @@ class CodingfogeyFontAwesomeExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
 
+        if (true === isset($config['customize'])) {
+            $container->setParameter('codingfogey_font_awesome.customize', $config['customize']);
+        }
         $container->setParameter('codingfogey_font_awesome.assets_dir', $config['assets_dir']);
     }
 }

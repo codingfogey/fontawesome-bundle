@@ -117,6 +117,6 @@ class FontAwesomeExtension extends Twig_Extension
      */
     public function getName()
     {
-        return 'codingfogey_fontawesome';
+        return 'codingfogey_font_awesome';
     }
 }

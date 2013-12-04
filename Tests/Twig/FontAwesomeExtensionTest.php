@@ -20,7 +20,7 @@ class FontAwesomeExtensionTest extends PHPUnit_Framework_TestCase
 
     public function testGetName()
     {
-        $this->assertEquals('codingfogey_fontawesome', $this->extension->getName());
+        $this->assertEquals('codingfogey_font_awesome', $this->extension->getName());
     }
 
     public function testGetFilters()

@@ -19,14 +19,27 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode    = $treeBuilder->root('codingfogey_font_awesome');
+        $rootNode = $treeBuilder->root('codingfogey_font_awesome');
 
         $rootNode
             ->children()
-            ->scalarNode('assets_dir')
-            ->defaultValue('%kernel.root_dir%/../vendor/fortawesome/font-awesome')
-            ->end()
-            ->end()
+                ->scalarNode('assets_dir')
+                    ->defaultValue('%kernel.root_dir%/../vendor/fortawesome/font-awesome')
+                ->end()
+                ->arrayNode('customize')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('variables_file')
+                        ->defaultValue('%kernel.root_dir%/Resources/fontawesome/variables.less')
+                        ->end()
+                        ->scalarNode('font_awesome_output')
+                        ->defaultValue('%kernel.root_dir%/Resources/less/fontawesome.less')
+                        ->end()
+                        ->scalarNode('font_awesome_template')
+                        ->defaultValue('CodingfogeyFontAwesomeBundle:FontAwesome:fontawesome.less.twig')
+                        ->end()
+                    ->end()
+                ->end()
         ;
 
         return $treeBuilder;
