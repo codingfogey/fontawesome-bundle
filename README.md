@@ -95,7 +95,9 @@ There is also a command to generate a customized `fontawesome.less` file to inco
     app/console codingfogey:fontawesome:generate
 
 
-Additionally it provides two [Twig](http://twig.sensiolabs.org/) functions to include icons:
+Additionally it provides two [Twig](http://twig.sensiolabs.org/) functions to include icons. 
+
+NOTICE: Currently these functions do work only if you did not change the CSS prefix.
 
 Single Icons can be added with the `fa_icon( icon [, options] )` function. It takes one or two parameters:
 
