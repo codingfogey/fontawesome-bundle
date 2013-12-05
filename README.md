@@ -26,7 +26,7 @@ Prerequisites
 Installation
 ------------
 
-1. Add `codinfogey/fontawesome-bundle` to your `composer.json`:
+1. Add `codingfogey/fontawesome-bundle` to your `composer.json`:
 
         {
             ...
@@ -54,18 +54,24 @@ Installation
 Configuration
 -------------
 
-The current version has not much to configure. Only the path to your Font Awesome installation directory can be set. 
-If you decide to install Font Awesome via [Packagist](https://packagist.org/packages/fortawesome/font-awesome) even 
-this can be omitted.
+You can configure the path to your Font Awesome installation directory. If you decide to install Font Awesome via [Packagist](https://packagist.org/packages/fortawesome/font-awesome) this can be omitted.
 
     codingfogey_font_awesome:
         assets_dir: %kernel.root_dir%/../path/to/font-awesome
+
+If you want to customize Font Awesome you have to put a `variables.less` file somewhere in your project. The Default is `%kernel.root_dir%/Resources/fontawesome/variables.less`. If you want to put it somewhere else you have to configure the path to the file. You can also set the output path and the template to use. The options can be omitted if you are consent with the defaults.
+
+    codingfogey_font_awesome:
+        customize:
+            variables_file:         %kernel.root_dir%/Resources/fontawesome/variables.less
+            font_awesome_output:    %kernel.root_dir%/Resources/less/fontawesome.less
+            font_awesome_template:  CodingfogeyFontAwesomeBundle:FontAwesome:fontawesome.less.twig
 
 
 Usage
 -----
 
-Currently the bundle provides one command to install the font files to the `web/fonts` directory:
+Currently the bundle provides two commands. One to install the font files to the `web/fonts` directory:
 
     app/console codingfogey:fontawesome:install
     
@@ -83,6 +89,10 @@ There is also a `ScriptHandler` for conveniently doing this automatically on eac
         ]
     },
     ...
+
+There is also a command to generate a customized `fontawesome.less` file to incorporate your customized `variables.less` file:
+
+    app/console codingfogey:fontawesome:generate
 
 
 Additionally it provides two [Twig](http://twig.sensiolabs.org/) functions to include icons:
