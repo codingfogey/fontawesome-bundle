@@ -19,7 +19,7 @@ class ScriptHandler
 
         if (!is_dir($appDir)) {
             printf(
-                'The symfony-app-dir (%s) specified in composer.json was not found in %s, ' . 
+                'The symfony-app-dir (%s) specified in composer.json was not found in %s, ' .
                 'can not build font awesome file.%s',
                 $appDir,
                 getcwd(),
@@ -42,6 +42,10 @@ class ScriptHandler
 
         $process = new Process($php . ' ' . $console . ' ' . $cmd, null, null, null, $timeout);
         $process->run(function ($type, $buffer) {
+            if ($type === "err")
+            {
+                echo sprintf("<error>%s</error>", $buffer);
+            }
             echo $buffer;
         });
         if (!$process->isSuccessful()) {

@@ -42,19 +42,37 @@ class GenerateCommand extends ContainerAwareCommand
     {
         $config = $this->getContainer()->getParameter('codingfogey_font_awesome.customize');
 
-        if (false === isset($config['variables_file']) || null === $config['variables_file']) {
-            $output->writeln('<error>Found no custom variables.less file.</error>');
+        $variablesFilePathParts = pathinfo($config['variables_file']);
+        $outputFilePathParts = pathinfo($config['font_awesome_output']);
 
+        if ($variablesFilePathParts['extension'] != $outputFilePathParts['extension'])
+        {
+            $output->writeln('<error>The variables file and the output file must have the same extension (less/scss).</error>');
             return;
         }
 
+        if (!is_readable($config['variables_file'])) {
+            $output->writeln('<error>Cannot find custom variables file.</error>');
+            return;
+        }
+
+        if (!is_dir(dirname($config['font_awesome_output'])))
+        {
+            $output->writeln('<comment>Cannot find target directory. Creating...</comment>');
+            mkdir(dirname($config['font_awesome_output']));
+            $output->writeln(sprintf('Created directory <info>%s</info>', dirname($config['font_awesome_output'])));
+        }
+
+        $renderer = $variablesFilePathParts['extension'];
+
         $output->writeln('<comment>Found custom variables file. Generating...</comment>');
-        $this->executeGenerateFontAwesome($config);
+        $this->executeGenerateFontAwesome($config, $renderer);
         $output->writeln(sprintf('Saved to <info>%s</info>', $config['font_awesome_output']));
     }
 
-    protected function executeGenerateFontAwesome(array $config)
+    protected function executeGenerateFontAwesome(array $config, $renderer)
     {
+
         $lessDir = $this->pathUtility->getRelativePath(
             dirname($config['font_awesome_output']),
             $this->getContainer()->getParameter('codingfogey_font_awesome.assets_dir')
@@ -63,20 +81,24 @@ class GenerateCommand extends ContainerAwareCommand
             dirname($config['font_awesome_output']),
             dirname($config['variables_file'])
         );
+
         $variablesFile = sprintf(
             '%s%s%s',
             $variablesDir,
             strlen($variablesDir) > 0 ? '/' : '',
-            basename($config['variables_file'])
+            preg_replace('/^\_$(\w+)$/', '$1', basename($config['variables_file']))
         );
 
+        $templateFile = sprintf('CodingfogeyFontAwesomeBundle:FontAwesome:fontawesome.%s.twig', $renderer);
+
         $content = $this->getContainer()->get('twig')->render(
-            $config['font_awesome_template'],
+            $templateFile,
             array(
                 'variables_file' => $variablesFile,
                 'assets_dir'     => $lessDir
             )
         );
+
         file_put_contents($config['font_awesome_output'], $content);
     }
 }
