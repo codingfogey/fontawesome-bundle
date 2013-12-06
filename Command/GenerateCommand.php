@@ -51,6 +51,12 @@ class GenerateCommand extends ContainerAwareCommand
             return;
         }
 
+        if ("scss" === $variablesFilePathParts['extension'] && "_" != substr($variablesFilePathParts['basename'], 0, 1))
+        {
+            $output->writeln('<error>The variables file name must start with an `_`.</error>');
+            return;
+        }
+
         if (!is_readable($config['variables_file'])) {
             $output->writeln('<error>Cannot find custom variables file.</error>');
             return;
@@ -83,10 +89,10 @@ class GenerateCommand extends ContainerAwareCommand
         );
 
         $variablesFile = sprintf(
-            '%s%s%s',
+            '%s%s',
             $variablesDir,
             strlen($variablesDir) > 0 ? '/' : '',
-            preg_replace('/^\_$(\w+)$/', '$1', basename($config['variables_file']))
+            "scss" === $renderer ? substr(basename($config['variables_file'], ".scss"),1) : basename($config['variables_file'])
         );
 
         $templateFile = sprintf('CodingfogeyFontAwesomeBundle:FontAwesome:fontawesome.%s.twig', $renderer);
