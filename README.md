@@ -90,7 +90,7 @@ There is also a `ScriptHandler` for conveniently doing this automatically on eac
     },
     ...
 
-There is also a command to generate a customized `fontawesome.less` file to incorporate your customized `variables.less` file:
+There is also a command to generate a customized `fontawesome.less` or `fontawesome.scss` file to incorporate your customized `variables.less` or `_variables.scss` file:
 
     app/console codingfogey:fontawesome:generate
 
