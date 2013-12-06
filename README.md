@@ -59,7 +59,7 @@ You can configure the path to your Font Awesome installation directory. If you d
     codingfogey_font_awesome:
         assets_dir: %kernel.root_dir%/../vendor/fortawesome/font-awesome
 
-If you want to customize Font Awesome you have to put a `variables.less` or `_variables.scss` file somewhere in your project. The Default is `%kernel.root_dir%/Resources/fontawesome/variables.less`. If you want to put it somewhere else you have to configure the path to the file. You can also set the output path and the template to use. The options can be omitted if you are consent with the defaults.
+If you want to customize Font Awesome you have to put a `variables.less` or `_variables.scss` file somewhere in your project. The default is `%kernel.root_dir%/Resources/fontawesome/variables.less`. If you want to put it somewhere else you have to configure the path to the file. You can also set the output path. These options can be omitted if you are consent with the defaults.
 
     codingfogey_font_awesome:
         customize:
