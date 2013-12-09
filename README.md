@@ -105,6 +105,21 @@ There is also a `ScriptHandler` for conveniently doing this automatically on eac
     },
     ...
 
+To include the Font Awesome css just include `@fontawesome_css` in your base template.
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8" />
+            <title>{% block title %}Welcome!{% endblock %}</title>
+            {% block stylesheets %}
+                {% stylesheets
+                    '@fontawesome_css'
+                %}
+                    <link rel="stylesheet" href="{{ asset_url }}" media="screen"/>
+                {% endstylesheets %}
+            {% endblock %}
+    
 Additionally it provides two [Twig](http://twig.sensiolabs.org/) functions to include icons. 
 
 NOTICE: Currently these functions do not work if you changed the `@fa-css-prefix` variable.
