@@ -32,7 +32,8 @@ Installation
             ...
             "require": {
                 ...
-                "codingfogey/fontawesome-bundle": "dev-master"
+                "codingfogey/fontawesome-bundle": "dev-master",
+                "fortawesome/font-awesome": "v4.0.3"
             }
             ...
         }
@@ -50,28 +51,42 @@ Installation
         }
         ...
 
+3. Update your dependencies: `composer update`.
+
+NOTICE Installing Font Awesome via composer is optional but makes this bundle work out of the box. So I recommend this way.
+
 
 Configuration
 -------------
 
-You can configure the path to your Font Awesome installation directory. If you decide to install Font Awesome via [Packagist](https://packagist.org/packages/fortawesome/font-awesome) this can be omitted.
+If you did not install Font Awesome via composer you have to configure the path to your installation:
 
     codingfogey_font_awesome:
         assets_dir: %kernel.root_dir%/../vendor/fortawesome/font-awesome
 
-If you want to customize Font Awesome you have to put a `variables.less` or `_variables.scss` file somewhere in your project. The default is `%kernel.root_dir%/Resources/fontawesome/variables.less`. If you want to put it somewhere else you have to configure the path to the file. You can also set the output path. These options can be omitted if you are consent with the defaults.
+
+Customization
+-------------
+
+If you want to customize Font Awesome you have to put a customized variables file somewhere in your project and configure the path. You also have to set the output path.
 
     codingfogey_font_awesome:
+        filter: less
         customize:
             variables_file:         %kernel.root_dir%/Resources/fontawesome/variables.less
             font_awesome_output:    %kernel.root_dir%/Resources/less/fontawesome.less
 
-NOTICE: If you want to use SCSS you have to set both variables.
+If you want to use the `lessphp` or `sass` Assetic filter you have to set the `filter` variable accordingly.
+
+There is a command to generate a customized output file to incorporate your customized variables file:
+
+    app/console codingfogey:fontawesome:generate
+
 
 Usage
 -----
 
-Currently the bundle provides two commands. One to install the font files to the `web/fonts` directory:
+The bundle provides a command to install the font files to the `web/fonts` directory:
 
     app/console codingfogey:fontawesome:install
     
@@ -90,16 +105,11 @@ There is also a `ScriptHandler` for conveniently doing this automatically on eac
     },
     ...
 
-There is also a command to generate a customized `fontawesome.less` or `fontawesome.scss` file to incorporate your customized `variables.less` or `_variables.scss` file:
-
-    app/console codingfogey:fontawesome:generate
-
-
 Additionally it provides two [Twig](http://twig.sensiolabs.org/) functions to include icons. 
 
 NOTICE: Currently these functions do not work if you changed the `@fa-css-prefix` variable.
 
-Single Icons can be added with the `fa_icon( icon [, options] )` function. It takes one or two parameters:
+Simple Icons can be added with the `fa_icon( icon [, options] )` function. It takes one or two parameters:
 
 1. the name of the icon which can be looked up [here](http://fortawesome.github.io/Font-Awesome/icons/). Omit the `fa-` prefix.
 2. optional JSON with options to customize the icon
@@ -139,7 +149,6 @@ This function will create something similar to
       <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
     </span>
 
-to be continued...
 
 TODO
 ----
