@@ -45,15 +45,6 @@ class GenerateCommand extends ContainerAwareCommand
 
         $filter = $this->getContainer()->getParameter('codingfogey_font_awesome.filter');
 
-//        $variablesFilePathParts = pathinfo($config['variables_file']);
-//        $outputFilePathParts = pathinfo($config['font_awesome_output']);
-//
-//        if ($variablesFilePathParts['extension'] != $outputFilePathParts['extension'])
-//        {
-//            $output->writeln('<error>The variables file and the output file must have the same extension (less/scss).</error>');
-//            return;
-//        }
-//
         if ("sass" === $filter && "_" !== substr(basename($config['variables_file']), 0, 1))
         {
             $output->writeln('<error>The variables file name must start with an `_`.</error>');
@@ -78,7 +69,6 @@ class GenerateCommand extends ContainerAwareCommand
 
     protected function executeGenerateFontAwesome(array $config, $filter)
     {
-
         $assetsDir    = $this->pathUtility->getRelativePath(
             dirname($config['font_awesome_output']),
             $this->getContainer()->getParameter('codingfogey_font_awesome.assets_dir')
@@ -90,20 +80,20 @@ class GenerateCommand extends ContainerAwareCommand
 
         switch ($filter) {
             case 'sass' :
-                $extension = 'scss';
+                $ext = 'scss';
                 break;
             default :
-                $extension = 'less';
+                $ext = 'less';
         }
 
         $variablesFile = sprintf(
             '%s%s%s',
             $variablesDir,
             strlen($variablesDir) > 0 ? '/' : '',
-            "sass" === $filter ? substr(basename($config['variables_file'], ".scss"), 1) : basename($config['variables_file'])
+            ltrim(basename($config['variables_file'], ".{$ext}"), "_")
         );
 
-        $templateFile = sprintf('CodingfogeyFontAwesomeBundle:FontAwesome:fontawesome.%s.twig', $extension);
+        $templateFile = sprintf('CodingfogeyFontAwesomeBundle:FontAwesome:fontawesome.%s.twig', $ext);
 
         $content = $this->getContainer()->get('twig')->render(
             $templateFile, array(
