@@ -120,7 +120,7 @@ To include the Font Awesome css just include `@fontawesome_css` in your base tem
                 {% endstylesheets %}
             {% endblock %}
     
-Additionally it provides two [Twig](http://twig.sensiolabs.org/) functions to include icons. 
+To add icons you can use two [Twig](http://twig.sensiolabs.org/) functions. 
 
 NOTICE: Currently these functions do not work if you changed the `@fa-css-prefix` variable.
 
