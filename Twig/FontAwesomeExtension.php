@@ -5,7 +5,8 @@ namespace Codingfogey\Bundle\FontAwesomeBundle\Twig;
 use Twig_Extension;
 use Twig_Function_Method;
 
-class FontAwesomeExtension extends Twig_Extension {
+class FontAwesomeExtension extends Twig_Extension
+{
 
     private $allowedOptions = array(
         'icon' => 'fa-%s',
@@ -23,7 +24,8 @@ class FontAwesomeExtension extends Twig_Extension {
     /**
      * {@inheritDoc}
      */
-    public function getFunctions() {
+    public function getFunctions()
+    {
         return array(
             'fa_icon' => new Twig_Function_Method(
                     $this, 'faIconFunction', array('pre_escape' => 'html', 'is_safe' => array('html'))
@@ -49,7 +51,7 @@ class FontAwesomeExtension extends Twig_Extension {
      *      flip:           null,
      *  }
      */
-    public function faIconFunction($icon1, $icon2 = null, $container = null) 
+    public function faIconFunction($icon1, $icon2 = null, $container = null)
     {
 
         if (null === $icon2) {
@@ -59,7 +61,7 @@ class FontAwesomeExtension extends Twig_Extension {
         return $this->createStackedIcon($icon1, $icon2, $container);
     }
 
-    public function createSimpleIcon($icon1, $stacked = false) 
+    public function createSimpleIcon($icon1, $stacked = false)
     {
 
         $classes = array();
@@ -88,7 +90,7 @@ class FontAwesomeExtension extends Twig_Extension {
      * @param  array $container Icon container Options
      * @return string
      */
-    protected function createStackedIcon($icon1, $icon2, $container = null) 
+    protected function createStackedIcon($icon1, $icon2, $container = null)
     {
 
         $classes = array(
@@ -116,9 +118,8 @@ class FontAwesomeExtension extends Twig_Extension {
     /**
      * {@inheritDoc}
      */
-    public function getName() 
+    public function getName()
     {
         return 'codingfogey_font_awesome';
     }
-
 }
