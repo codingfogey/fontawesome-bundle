@@ -5,23 +5,28 @@ namespace Codingfogey\Bundle\FontAwesomeBundle\Twig;
 use Twig_Extension;
 use Twig_Function_Method;
 
-class FontAwesomeExtension extends Twig_Extension
-{
+class FontAwesomeExtension extends Twig_Extension {
 
-    private $allowedScales    = array('lg', '1x', '2x', '3x', '4x', '5x', 'stack-1x', 'stack-2x');
-    private $allowedRotations = array('90', '180', '270');
+    private $allowedOptions = array(
+        'icon' => 'fa-%s',
+        'scale' => 'fa-%s',
+        'fixed-width' => 'fa-fixed-width',
+        'list-icon' => 'fa-li',
+        'border' => 'fa-border',
+        'pull' => 'fa-pull-%s',
+        'spin' => 'fa-spin',
+        'rotate' => 'fa-rotate-%s',
+        'flip' => 'fa-flip-%s',
+        'inverse' => 'fa-inverse'
+    );
 
     /**
      * {@inheritDoc}
      */
-    public function getFunctions()
-    {
+    public function getFunctions() {
         return array(
-            'fa_icon'         => new Twig_Function_Method(
-                $this, 'faIconFunction', array('pre_escape' => 'html', 'is_safe' => array('html'))
-            ),
-            'fa_stacked_icon' => new Twig_Function_Method(
-                $this, 'faStackedIconFunction', array('pre_escape' => 'html', 'is_safe' => array('html'))
+            'fa_icon' => new Twig_Function_Method(
+                    $this, 'faIconFunction', array('pre_escape' => 'html', 'is_safe' => array('html'))
             ),
         );
     }
@@ -29,11 +34,11 @@ class FontAwesomeExtension extends Twig_Extension
     /**
      *
      *
-     * @param  type   $icon    Icon name
-     * @param  array  $options Icon options
+     * @param  mixed   $icon    Icon name
      * @return string
      *
      *  {
+     *      name:           "globe"
      *      scale:          null,
      *      fixed-width:    false,
      *      list-icon:      false,
@@ -44,70 +49,58 @@ class FontAwesomeExtension extends Twig_Extension
      *      flip:           null,
      *  }
      */
-    public function faIconFunction($icon, array $options = array())
-    {
-        $classes = array();
-        if (true === isset($options['scale']) && true === in_array($options['scale'], $this->allowedScales)) {
-            $classes[] = sprintf("fa-%s", $options['scale']);
-        }
-        if (true === isset($options['fixed-width']) && true === $options['fixed-width']) {
-            $classes[] = "fa-fixed-width";
-        }
-        if (true === isset($options['list-icon']) && true === $options['list-icon']) {
-            $classes[] = "fa-li";
-        }
-        if (true === isset($options['border']) && true === $options['border']) {
-            $classes[] = "fa-border";
-        }
-        if (true === isset($options['pull']) && true === in_array($options['pull'], array('left', 'right'))) {
-            $classes[] = sprintf("fa-pull-%s", $options['pull']);
-        }
-        if (true === isset($options['spin']) && true === $options['spin']) {
-            $classes[] = "fa-spin";
-        }
-        if (true === isset($options['rotate']) && true === in_array($options['rotate'], $this->allowedRotations)) {
-            $classes[] = sprintf("fa-rotate-%s", $options['rotate']);
-        }
-        if (true === isset($options['flip']) && true === in_array($options['flip'], array('horizontal', 'vertical'))) {
-            $classes[] = sprintf("fa-flip-%s", $options['flip']);
-        }
-        if (true === isset($options['inverse']) && (true === $options['inverse'])) {
-            $classes[] = "fa-inverse";
-        }
-        if (true === isset($options['classes'])) {
-            $classes[] = $options['classes'];
+    public function faIconFunction($icon1, $icon2 = null, $container = null) {
+
+        if (null === $icon2) {
+            return $this->createSimpleIcon($icon1);
         }
 
-        $classes[] = "fa";
-        $classes[] = sprintf("fa-%s", $icon);
+        return $this->createStackedIcon($icon1, $icon2, $container);
+    }
+
+    public function createSimpleIcon($icon1) {
+
+        $classes = array();
+
+        if (true === is_array($icon1)) {
+            foreach ($this->allowedOptions as $option => $template) {
+                if (true === isset($icon1[$option])) {
+                    $classes[] = sprintf($template, $icon1[$option]);
+                }
+            }
+        } else {
+            $classes[] = sprintf("fa-%s", $icon1);
+        }
 
         return sprintf('<i class="%s"></i>', implode(' ', $classes));
     }
 
     /**
      *
-     * @param  string $icon1    Foreground icon name
-     * @param  string $icon2    Background icon name
-     * @param  array  $options1 Foreground icon options
-     * @param  array  $options2 Background icon options
-     * @param  array  $options  Icon container Options
+     * @param  mixed $icon1     Foreground icon name
+     * @param  mixed $icon2     Background icon name
+     * @param  array $container Icon container Options
      * @return string
      */
-    public function faStackedIconFunction($icon1, $icon2, array $options1 = array(), array $options2 = array(), array $options = array())
-    {
-        $classes   = array();
+    protected function createStackedIcon($icon1, $icon2, $container = null) {
+
+        $classes = array();
+
         $classes[] = "fa-stack";
-        if (true === isset($options['scale']) && true === in_array($options['scale'], $this->allowed_scales)) {
-            $classes[] = sprintf("fa-%s", $options['scale']);
+
+        if (true === isset($container['scale'])) {
+            $classes[] = sprintf("fa-%s", $container['scale']);
         }
+        
+        $containerType = true === isset($container['type']) ? $container['type'] : 'span';
 
-        $options1['scale'] = 'stack-1x';
-        $options2['scale'] = 'stack-2x';
+        $icon1['scale'] = 'stack-1x';
+        $icon2['scale'] = 'stack-2x';
 
-        $output[] = sprintf('<span class="%s">', implode(' ', $classes));
-        $output[] = $this->faIconFunction($icon2, $options2);
-        $output[] = $this->faIconFunction($icon1, $options1);
-        $output[] = '</span>';
+        $output[] = sprintf('<%s class="%s">', $containerType, implode(' ', $classes));
+        $output[] = $this->createSimpleIcon($icon2);
+        $output[] = $this->createSimpleIcon($icon1);
+        $output[] = sprintf('</%>', $containerType);
 
         return implode('', $output);
     }
@@ -115,8 +108,8 @@ class FontAwesomeExtension extends Twig_Extension
     /**
      * {@inheritDoc}
      */
-    public function getName()
-    {
+    public function getName() {
         return 'codingfogey_font_awesome';
     }
+
 }
