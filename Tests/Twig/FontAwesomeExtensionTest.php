@@ -32,15 +32,18 @@ class FontAwesomeExtensionTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(
                 '<i class="fa fa-twitter"></i>', $this->extension->faIconFunction('twitter')
         );
+        $icon = array('icon' => 'twitter');
         $this->assertEquals(
-                '<i class="fa fa-twitter"></i>', $this->extension->faIconFunction('{ icon: twitter }')
+                '<i class="fa fa-twitter"></i>', $this->extension->faIconFunction($icon)
         );
     }
 
     public function testFaIconFunctionStacked() {
+        $icon1 = array('icon' => 'flag', 'inverse' => true);
+        $icon2 = array('icon' => 'circle',);
         $this->assertEquals(
             '<span class="fa-stack"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-flag fa-stack-1x fa-inverse"></i></span>', 
-            $this->extension->faIconFunction('{ icon: flag, inverse: true }', '{ icon: circle }')
+            $this->extension->faIconFunction($icon1, $icon2)
         );
     }
 
