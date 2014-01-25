@@ -90,7 +90,7 @@ class FontAwesomeExtension extends Twig_Extension
     {
 
         $classes = array(
-            'fa-stacked'
+            'fa-stack'
         );
 
         if (true === isset($container['scale'])) {
