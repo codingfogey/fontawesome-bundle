@@ -30,7 +30,7 @@ class FontAwesomeExtensionTest extends PHPUnit_Framework_TestCase
 
     public function testGetFunctions()
     {
-        $this->assertCount(2, $this->extension->getFunctions());
+        $this->assertCount(1, $this->extension->getFunctions());
     }
 
     public function testFaIconFunctionSimple()
