@@ -58,9 +58,13 @@ class FontAwesomeExtension extends Twig_Extension {
         return $this->createStackedIcon($icon1, $icon2, $container);
     }
 
-    public function createSimpleIcon($icon1) {
+    public function createSimpleIcon($icon1, $stacked = false) {
 
         $classes = array();
+        
+        if (false === $stacked) {
+            $classes[] = 'fa';
+        }
 
         if (true === is_array($icon1)) {
             foreach ($this->allowedOptions as $option => $template) {
@@ -84,9 +88,10 @@ class FontAwesomeExtension extends Twig_Extension {
      */
     protected function createStackedIcon($icon1, $icon2, $container = null) {
 
-        $classes = array();
-
-        $classes[] = "fa-stack";
+        $classes = array(
+            'fa',
+            'fa-stacked'
+        );
 
         if (true === isset($container['scale'])) {
             $classes[] = sprintf("fa-%s", $container['scale']);
@@ -98,8 +103,8 @@ class FontAwesomeExtension extends Twig_Extension {
         $icon2['scale'] = 'stack-2x';
 
         $output[] = sprintf('<%s class="%s">', $containerType, implode(' ', $classes));
-        $output[] = $this->createSimpleIcon($icon2);
-        $output[] = $this->createSimpleIcon($icon1);
+        $output[] = $this->createSimpleIcon($icon2, true);
+        $output[] = $this->createSimpleIcon($icon1, true);
         $output[] = sprintf('</%>', $containerType);
 
         return implode('', $output);
@@ -111,5 +116,4 @@ class FontAwesomeExtension extends Twig_Extension {
     public function getName() {
         return 'codingfogey_font_awesome';
     }
-
 }
