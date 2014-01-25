@@ -119,23 +119,26 @@ To include the Font Awesome css just include `@fontawesome_css` in your base tem
                     <link rel="stylesheet" href="{{ asset_url }}" media="screen"/>
                 {% endstylesheets %}
             {% endblock %}
-    
-To add icons you can use two [Twig](http://twig.sensiolabs.org/) functions. 
 
-NOTICE: Currently these functions do not work if you changed the `@fa-css-prefix` variable.
+Adding icons
+------------
 
-Simple Icons can be added with the `fa_icon( icon [, options] )` function. It takes one or two parameters:
+You can add icons as described [here](http://fortawesome.github.io/Font-Awesome/examples/).
 
-1. the name of the icon which can be looked up [here](http://fortawesome.github.io/Font-Awesome/icons/). Omit the `fa-` prefix.
-2. optional JSON with options to customize the icon
+You can also use the handy [Twig](http://twig.sensiolabs.org/) function.
 
-This function will create something similar to
+NOTICE: This function does not work if you changed the `@fa-css-prefix` variable.
 
-    <i class="fa fa-edit fa-border"></i>
+Simple icons
+------------
 
-The complete optionset looks like follows. By default none of these options are set.
+To insert a simple icon add `{{ fa_icon( icon name|options ) }}` into your template.
+
+The parameter can be a `string` containing only the icon name without `fa-` prefix 
+or `JSON` for more customisation. The complete set of options is as follows:
 
     {
+        icon:           name of the icon without 'fa-' prefix
         scale:          [lg|2x|3x|4x|5x|stack-1x|stack-2x],
         fixed-width:    [true|false],
         list-icon:      [true|false],
@@ -144,25 +147,18 @@ The complete optionset looks like follows. By default none of these options are 
         spin:           [true|false],
         rotate:         [90|180|270],
         flip:           [horizontal|vertical],
-        inverse:        [true|false],
-        classes:        <a string of space separeted css classes>
+        inverse:        [true|false]
     }
 
+To insert stacked icons add `{{ fa_icon( icon name|options, icon name|options [, container] ) }}`
+into your template. The first parameter is for the foreground icon, the second 
+is for the background icon. The last parameter is optional and can contain options 
+for the container element. The complete set of container options is as follows:
 
-Stacked Icons can be added with the `fa_stacked_icon( icon1, icon2 [, options1 [, options2 [, options]]] )` function. It takes two to five parameters:
-
-1. the name of the foreground icon
-2. the name of the background icon
-3. options for the foreground icon
-4. options for the background icon
-2. options for the container element
-
-This function will create something similar to
-
-    <span class="fa-stack">
-      <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
-    </span>
+    {
+        type:           html element type for the container (default: span)
+        scale:          [lg|2x|3x|4x|5x]
+    }
 
 
 TODO
