@@ -105,7 +105,7 @@ class FontAwesomeExtension extends Twig_Extension
         $output[] = sprintf('<%s class="%s">', $containerType, implode(' ', $classes));
         $output[] = $this->createSimpleIcon($icon2);
         $output[] = $this->createSimpleIcon($icon1);
-        $output[] = sprintf('</%>', $containerType);
+        $output[] = sprintf('</%s>', $containerType);
 
         return implode('', $output);
     }
