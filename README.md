@@ -1,5 +1,4 @@
-CodingfogeyFontAwesomeBundle
-============================
+# CodingfogeyFontAwesomeBundle
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/7b8a98ea-e8e8-49c0-a5b0-7ee378009b07/mini.png)](https://insight.sensiolabs.com/projects/7b8a98ea-e8e8-49c0-a5b0-7ee378009b07)
 [![Total Downloads](https://poser.pugx.org/codingfogey/fontawesome-bundle/downloads.png)](https://packagist.org/packages/codingfogey/fontawesome-bundle)
@@ -11,20 +10,17 @@ CodingfogeyFontAwesomeBundle
 
 [![knpbundles.com](http://knpbundles.com/codingfogey/fontawesome-bundle/badge-short)](http://knpbundles.com/codingfogey/fontawesome-bundle)
 
-About
------
+## About
 
 This Bundle makes it easy to integrate [Font Awesome](http://fortawesome.github.io/Font-Awesome/) into your [Symfony2](http://symfony.com/) projects.
 
 
-Prerequisites
--------------
+## Prerequisites
 
 - Font Awesome installed somewhere in your project. It is not contained in this bundle. You can use [Composer](http://getcomposer.org), [Bower](http://bower.io) or any other way to install it.
 
 
-Installation
-------------
+## Installation
 
 1. Add `codingfogey/fontawesome-bundle` to your `composer.json`:
 
@@ -56,8 +52,7 @@ Installation
 NOTICE Installing Font Awesome via composer is optional but makes this bundle work out of the box. So I recommend this way.
 
 
-Configuration
--------------
+## Configuration
 
 If you did not install Font Awesome via composer you have to configure the path to your installation:
 
@@ -65,8 +60,7 @@ If you did not install Font Awesome via composer you have to configure the path 
         assets_dir: %kernel.root_dir%/../vendor/fortawesome/font-awesome
 
 
-Customization
--------------
+## Customization
 
 If you want to customize Font Awesome you have to put a customized variables file somewhere in your project and configure the path. You also have to set the output path.
 
@@ -83,8 +77,9 @@ There is a command to generate a customized output file to incorporate your cust
     app/console codingfogey:fontawesome:generate
 
 
-Usage
------
+## Usage
+
+### Installation of font files
 
 The bundle provides a command to install the font files to the `web/fonts` directory:
 
@@ -120,8 +115,7 @@ To include the Font Awesome css just include `@fontawesome_css` in your base tem
                 {% endstylesheets %}
             {% endblock %}
 
-Adding icons
-------------
+### Adding icons
 
 You can add icons as described [here](http://fortawesome.github.io/Font-Awesome/examples/).
 
@@ -129,8 +123,7 @@ You can also use the handy [Twig](http://twig.sensiolabs.org/) function.
 
 NOTICE: This function does not work if you changed the `@fa-css-prefix` variable.
 
-Simple icons
-------------
+#### Simple icons
 
 To insert a simple icon add `{{ fa_icon( icon name|options ) }}` into your template.
 
@@ -150,6 +143,8 @@ or `JSON` for more customisation. The complete set of options is as follows:
         inverse:        [true|false]
     }
 
+#### Stacked icons
+
 To insert stacked icons add `{{ fa_icon( icon name|options, icon name|options [, container] ) }}`
 into your template. The first parameter is for the foreground icon, the second 
 is for the background icon. The last parameter is optional and can contain options 
@@ -161,20 +156,17 @@ for the container element. The complete set of container options is as follows:
     }
 
 
-TODO
-----
+## TODO
 
 Look [here](../../issues?milestone=&state=open).
 
 
-License
--------
+## License
 
 - This bundle is licensed under the [MIT License](http://opensource.org/licenses/MIT).
 - For Font Awesome you can find licensing information [here](http://fortawesome.github.io/Font-Awesome/license/).
 
 
-Acknowledgment
---------------
+## Acknowledgment
 
 - This bundle is mainly inspired by [braincrafted/bootstrap-bundle](https://github.com/braincrafted/bootstrap-bundle.git) and most of the code is taken from there.
