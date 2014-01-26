@@ -45,14 +45,15 @@ class GenerateCommand extends ContainerAwareCommand
 
         $filter = $this->getContainer()->getParameter('codingfogey_font_awesome.filter');
 
-        if ("sass" === $filter && "_" !== substr(basename($config['variables_file']), 0, 1))
-        {
+        if ("sass" === $filter && "_" !== substr(basename($config['variables_file']), 0, 1)) {
             $output->writeln('<error>The variables file name must start with an `_`.</error>');
+
             return;
         }
 
         if (!is_readable($config['variables_file'])) {
             $output->writeln('<error>Cannot find custom variables file.</error>');
+
             return;
         }
 

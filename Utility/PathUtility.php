@@ -34,7 +34,7 @@ class PathUtility
                 }
             }
         }
+
         return implode('/', $relPath);
     }
-
 }

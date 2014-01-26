@@ -11,7 +11,7 @@ class FontAwesomeExtension extends Twig_Extension
     private $allowedOptions = array(
         'icon' => 'fa-%s',
         'scale' => 'fa-%s',
-        'fixed-width' => 'fa-fixed-width',
+        'fixed-width' => 'fa-fw',
         'list-icon' => 'fa-li',
         'border' => 'fa-border',
         'pull' => 'fa-pull-%s',
@@ -36,7 +36,7 @@ class FontAwesomeExtension extends Twig_Extension
     /**
      *
      *
-     * @param  mixed   $icon    Icon name
+     * @param  mixed  $icon Icon name
      * @return string
      *
      *  {
@@ -81,9 +81,9 @@ class FontAwesomeExtension extends Twig_Extension
 
     /**
      *
-     * @param  mixed $icon1     Foreground icon name
-     * @param  mixed $icon2     Background icon name
-     * @param  array $container Icon container Options
+     * @param  mixed  $icon1     Foreground icon name
+     * @param  mixed  $icon2     Background icon name
+     * @param  array  $container Icon container Options
      * @return string
      */
     protected function createStackedIcon($icon1, $icon2, $container = null)

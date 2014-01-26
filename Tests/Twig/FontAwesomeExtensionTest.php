@@ -44,6 +44,71 @@ class FontAwesomeExtensionTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    public function testFaIconFunctionScale()
+    {
+        $icon = array('icon' => 'twitter');
+
+        $icon['scale'] = 'lg';
+        $this->assertEquals(
+                '<i class="fa fa-twitter fa-lg"></i>', $this->extension->faIconFunction($icon)
+        );
+
+        $icon['scale'] = '2x';
+        $this->assertEquals(
+                '<i class="fa fa-twitter fa-2x"></i>', $this->extension->faIconFunction($icon)
+        );
+
+        $icon['scale'] = '3x';
+        $this->assertEquals(
+                '<i class="fa fa-twitter fa-3x"></i>', $this->extension->faIconFunction($icon)
+        );
+
+        $icon['scale'] = '4x';
+        $this->assertEquals(
+                '<i class="fa fa-twitter fa-4x"></i>', $this->extension->faIconFunction($icon)
+        );
+
+        $icon['scale'] = '5x';
+        $this->assertEquals(
+                '<i class="fa fa-twitter fa-5x"></i>', $this->extension->faIconFunction($icon)
+        );
+    }
+
+    public function testFaIconFunctionFixedWidth()
+    {
+        $icon = array('icon' => 'twitter');
+
+        $icon['fixed-width'] = true;
+        $this->assertEquals(
+                '<i class="fa fa-twitter fa-fw"></i>', $this->extension->faIconFunction($icon)
+        );
+    }
+
+    public function testFaIconFunctionPull()
+    {
+        $icon = array('icon' => 'twitter');
+
+        $icon['pull'] = 'left';
+        $this->assertEquals(
+                '<i class="fa fa-twitter fa-pull-left"></i>', $this->extension->faIconFunction($icon)
+        );
+
+        $icon['pull'] = 'right';
+        $this->assertEquals(
+                '<i class="fa fa-twitter fa-pull-right"></i>', $this->extension->faIconFunction($icon)
+        );
+    }
+
+    public function testFaIconFunctionSpin()
+    {
+        $icon = array('icon' => 'twitter');
+
+        $icon['spin'] = true;
+        $this->assertEquals(
+                '<i class="fa fa-twitter fa-spin"></i>', $this->extension->faIconFunction($icon)
+        );
+    }
+
     public function testFaIconFunctionStacked()
     {
         $icon1 = array('icon' => 'flag', 'inverse' => true);

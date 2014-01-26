@@ -43,8 +43,7 @@ class ScriptHandler
         $process = new Process($php . ' ' . $console . ' ' . $cmd, null, null, null, $timeout);
         $process->run(
             function ($type, $buffer) {
-                if ($type === "err")
-                {
+                if ($type === "err") {
                     echo $buffer;
                 } else {
                     echo $buffer;

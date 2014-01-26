@@ -18,8 +18,7 @@ class AsseticConfiguration
             $config['output_dir'] .= '/';
         }
 
-        switch ($config['filter'])
-        {
+        switch ($config['filter']) {
             case 'less' :
                 $output['fontawesome_css'] = $this->buildWithLess($config);
                 break;

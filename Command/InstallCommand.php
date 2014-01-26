@@ -39,6 +39,7 @@ class InstallCommand extends ContainerAwareCommand
             $fs->mkdir($destDir);
         } catch (IOException $e) {
             $output->writeln(sprintf('<error>Could not create directory %s.</error>', $destDir));
+
             return;
         }
 
