@@ -7,7 +7,6 @@ use Twig_Function_Method;
 
 class FontAwesomeExtension extends Twig_Extension
 {
-
     private $allowedOptions = array(
         'icon' => 'fa-%s',
         'scale' => 'fa-%s',
@@ -28,7 +27,7 @@ class FontAwesomeExtension extends Twig_Extension
     {
         return array(
             'fa_icon' => new Twig_Function_Method(
-                    $this, 'faIconFunction', array('pre_escape' => 'html', 'is_safe' => array('html'))
+                $this, 'faIconFunction', array('pre_escape' => 'html', 'is_safe' => array('html'))
             ),
         );
     }
@@ -61,19 +60,22 @@ class FontAwesomeExtension extends Twig_Extension
         return $this->createStackedIcon($icon1, $icon2, $container);
     }
 
-    public function createSimpleIcon($icon1)
+    public function createSimpleIcon($icon)
     {
 
         $classes = array('fa');
 
-        if (true === is_array($icon1)) {
+        if (true === is_array($icon)) {
             foreach ($this->allowedOptions as $option => $template) {
-                if (true === isset($icon1[$option])) {
-                    $classes[] = sprintf($template, $icon1[$option]);
+                if (true === isset($icon[$option])) {
+                    $classes[] = sprintf($template, $icon[$option]);
                 }
             }
+            if (true === isset($icon['classes'])) {
+                $classes[] = implode(' ', $icon['classes']);
+            }
         } else {
-            $classes[] = sprintf("fa-%s", $icon1);
+            $classes[] = sprintf("fa-%s", $icon);
         }
 
         return sprintf('<i class="%s"></i>', implode(' ', $classes));
@@ -96,11 +98,11 @@ class FontAwesomeExtension extends Twig_Extension
         if (true === isset($container['scale'])) {
             $classes[] = sprintf("fa-%s", $container['scale']);
         }
+        if (true === isset($container['classes'])) {
+            $classes[] = implode(' ', $icon['classes']);
+        }
 
         $containerType = true === isset($container['type']) ? $container['type'] : 'span';
-
-        $icon1['scale'] = 'stack-1x';
-        $icon2['scale'] = 'stack-2x';
 
         $output[] = sprintf('<%s class="%s">', $containerType, implode(' ', $classes));
         $output[] = $this->createSimpleIcon($icon2);

@@ -84,7 +84,7 @@ There is a command to generate a customized output file to incorporate your cust
 The bundle provides a command to install the font files to the `web/fonts` directory:
 
     app/console codingfogey:fontawesome:install
-    
+
 There is also a `ScriptHandler` for conveniently doing this automatically on each `composer install` or `composer update`:
 
     ...
@@ -127,8 +127,8 @@ NOTICE: This function does not work if you changed the `@fa-css-prefix` variable
 
 To insert a simple icon add `{{ fa_icon( icon name|options ) }}` into your template.
 
-The parameter can be a `string` containing only the icon name without `fa-` prefix 
-or `JSON` for more customisation. The complete set of options is as follows:
+The parameter can be a `string` containing only the icon name without `fa-` prefix
+or `JSON` for more customization. The complete set of options is as follows:
 
     {
         icon:           name of the icon without 'fa-' prefix
@@ -145,9 +145,12 @@ or `JSON` for more customisation. The complete set of options is as follows:
 
 #### Stacked icons
 
-To insert stacked icons add `{{ fa_icon( icon name|options, icon name|options [, container] ) }}`
-into your template. The first parameter is for the foreground icon, the second 
-is for the background icon. The last parameter is optional and can contain options 
+To insert stacked icons add `{{ fa_icon( options, options [, container] ) }}`
+into your template. The first parameter is for the foreground icon, the second
+is for the background icon. These have to be `JSON` because you have to provide
+at least two parameters for each icon. The name of the icon and the scale.
+
+The last parameter is optional and can contain options
 for the container element. The complete set of container options is as follows:
 
     {
