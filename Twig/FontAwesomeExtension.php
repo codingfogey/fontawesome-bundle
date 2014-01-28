@@ -83,12 +83,12 @@ class FontAwesomeExtension extends Twig_Extension
 
     /**
      *
-     * @param  mixed  $icon1     Foreground icon name
-     * @param  mixed  $icon2     Background icon name
+     * @param  array  $icon1     Foreground icon name
+     * @param  array  $icon2     Background icon name
      * @param  array  $container Icon container Options
      * @return string
      */
-    protected function createStackedIcon($icon1, $icon2, $container = null)
+    protected function createStackedIcon(array $icon1, array $icon2, array $container = null)
     {
 
         $classes = array(
@@ -103,6 +103,9 @@ class FontAwesomeExtension extends Twig_Extension
         }
 
         $containerType = true === isset($container['type']) ? $container['type'] : 'span';
+
+        $icon1['scale'] = sprintf('stack-%s', $icon1['scale']);
+        $icon2['scale'] = sprintf('stack-%s', $icon2['scale']);
 
         $output[] = sprintf('<%s class="%s">', $containerType, implode(' ', $classes));
         $output[] = $this->createSimpleIcon($icon2);
