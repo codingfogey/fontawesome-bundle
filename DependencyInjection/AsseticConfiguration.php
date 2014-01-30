@@ -19,10 +19,10 @@ class AsseticConfiguration
         }
 
         switch ($config['filter']) {
-            case 'less' :
-                $output['fontawesome_css'] = $this->buildWithLess($config);
+            case 'none' :
+                $output['fontawesome_css'] = $this->copyCss($config);
                 break;
-            case 'lessphp' :
+            case 'less' :
                 $output['fontawesome_css'] = $this->buildWithLess($config);
                 break;
             case 'sass' :
@@ -31,6 +31,17 @@ class AsseticConfiguration
         }
 
         return $output;
+    }
+
+    protected function copyCss(array $config)
+    {
+        $inputs[] = $config['assets_dir'] . '/css/font-awesome.css';
+
+        return array(
+            'inputs' => $inputs,
+            'filters' => array(),
+            'output' => $config['output_dir'] . 'css/fontawesome.css'
+        );
     }
 
     protected function buildWithLess(array $config)
@@ -46,9 +57,9 @@ class AsseticConfiguration
         );
 
         return array(
-            'inputs'  => $inputs,
+            'inputs' => $inputs,
             'filters' => array($config['filter']),
-            'output'  => $config['output_dir'] . 'css/fontawesome.css'
+            'output' => $config['output_dir'] . 'css/fontawesome.css'
         );
     }
 
@@ -65,9 +76,9 @@ class AsseticConfiguration
         );
 
         return array(
-            'inputs'  => $inputs,
+            'inputs' => $inputs,
             'filters' => array($config['filter']),
-            'output'  => $config['output_dir'] . 'css/fontawesome.css'
+            'output' => $config['output_dir'] . 'css/fontawesome.css'
         );
     }
 }

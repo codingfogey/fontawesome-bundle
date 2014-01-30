@@ -32,7 +32,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('filter')
                     ->defaultValue('less')
                     ->validate()
-                        ->ifNotInArray(array('less', 'lessphp', 'sass'))
+                        ->ifNotInArray(array('none', 'less', 'sass'))
                         ->thenInvalid('Invalid filter "%s"')
                     ->end()
                 ->end()
