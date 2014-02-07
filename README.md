@@ -1,6 +1,7 @@
 # CodingfogeyFontAwesomeBundle
 
 [![License](https://poser.pugx.org/codingfogey/fontawesome-bundle/license.png)](https://packagist.org/packages/codingfogey/fontawesome-bundle)
+[![Dependency Status](https://www.versioneye.com/user/projects/52f51557ec1375fd0b000077/badge.png)](https://www.versioneye.com/user/projects/52f51557ec1375fd0b000077)
 [![Total Downloads](https://poser.pugx.org/codingfogey/fontawesome-bundle/downloads.png)](https://packagist.org/packages/codingfogey/fontawesome-bundle)
 [![Latest Stable Version](https://poser.pugx.org/codingfogey/fontawesome-bundle/v/stable.png)](https://packagist.org/packages/codingfogey/fontawesome-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/codingfogey/fontawesome-bundle/v/unstable.png)](https://packagist.org/packages/codingfogey/fontawesome-bundle)
