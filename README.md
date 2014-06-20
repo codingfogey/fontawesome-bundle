@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/codingfogey/fontawesome-bundle.png?label=ready&title=Ready)](https://waffle.io/codingfogey/fontawesome-bundle)
 # CodingfogeyFontAwesomeBundle
 
 [![License](https://poser.pugx.org/codingfogey/fontawesome-bundle/license.png)](https://packagist.org/packages/codingfogey/fontawesome-bundle)
