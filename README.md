@@ -1,4 +1,3 @@
-[![Stories in Ready](https://badge.waffle.io/codingfogey/fontawesome-bundle.png?label=ready&title=Ready)](https://waffle.io/codingfogey/fontawesome-bundle)
 # CodingfogeyFontAwesomeBundle
 
 [![License](https://poser.pugx.org/codingfogey/fontawesome-bundle/license.png)](https://packagist.org/packages/codingfogey/fontawesome-bundle)
@@ -10,6 +9,7 @@
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/codingfogey/fontawesome-bundle/badges/quality-score.png?s=ddf3507ab8055474b46db51a92e7a486a94a931a)](https://scrutinizer-ci.com/g/codingfogey/fontawesome-bundle/)
 [![Code Coverage](https://scrutinizer-ci.com/g/codingfogey/fontawesome-bundle/badges/coverage.png?s=b9f564491938c725b1dc2f64b1461071a6b710cf)](https://scrutinizer-ci.com/g/codingfogey/fontawesome-bundle/)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/7b8a98ea-e8e8-49c0-a5b0-7ee378009b07/mini.png)](https://insight.sensiolabs.com/projects/7b8a98ea-e8e8-49c0-a5b0-7ee378009b07)
+[![Stories in Ready](https://badge.waffle.io/codingfogey/fontawesome-bundle.png?label=ready&title=Ready)](https://waffle.io/codingfogey/fontawesome-bundle)
 
 [![knpbundles.com](http://knpbundles.com/codingfogey/fontawesome-bundle/badge-short)](http://knpbundles.com/codingfogey/fontawesome-bundle)
 
