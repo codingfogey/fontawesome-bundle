@@ -1,4 +1,4 @@
-As [braincrafted/bootstrap-bundle](https://github.com/braincrafted/bootstrap-bundle.git) now supports Font Awesome directly, this bundle is no longer maintained.
+**As [braincrafted/bootstrap-bundle](https://github.com/braincrafted/bootstrap-bundle.git) now supports Font Awesome directly, this bundle is no longer maintained.**
 
 # CodingfogeyFontAwesomeBundle
 
